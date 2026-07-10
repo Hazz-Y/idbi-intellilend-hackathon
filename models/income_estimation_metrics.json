@@ -1,0 +1,21 @@
+{
+  "mae": 3935.43,
+  "rmse": 8153.04,
+  "r2_score": 0.9917,
+  "mape_pct": 2.4,
+  "mdape_pct": 0.9,
+  "confidence_band_distribution": {
+    "High": 927,
+    "Medium": 40,
+    "Low": 33
+  },
+  "confidence_band_mape": {
+    "High": 1.8,
+    "Medium": 13.4,
+    "Low": 4.9
+  },
+  "income_deviation_flagged_n": 217,
+  "income_deviation_flagged_pct": 21.7,
+  "n_train": 4000,
+  "n_test": 1000
+}
