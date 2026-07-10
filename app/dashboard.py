@@ -33,10 +33,24 @@ PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
-# Auto-run pipeline if models don't exist (for cloud deployment)
-if not os.path.exists(os.path.join(PROJECT_ROOT, "models", "pipeline_output.pkl")):
+# Auto-run pipeline if models don't exist or are broken due to Python version mismatch
+pipeline_path = os.path.join(PROJECT_ROOT, "models", "pipeline_output.pkl")
+needs_run = False
+if not os.path.exists(pipeline_path):
+    needs_run = True
+else:
+    try:
+        import pickle
+        with open(pipeline_path, "rb") as f:
+            # Just test if we can unpickle it without a ModuleNotFoundError
+            pickle.load(f)
+    except Exception as e:
+        print(f"Stale or broken cache detected: {e}. Forcing re-run.")
+        needs_run = True
+
+if needs_run:
     import subprocess
-    print("Pipeline output not found. Running pipeline in fast mode...")
+    print("Running pipeline in fast mode...")
     subprocess.run([sys.executable, os.path.join(PROJECT_ROOT, "run_pipeline.py"), "--fast"], check=True)
 
 
