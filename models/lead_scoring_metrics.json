@@ -1,18 +1,18 @@
 {
-  "roc_auc": 0.9139,
-  "average_precision": 0.5906,
-  "precision_at_top20": 0.4,
-  "base_conversion_rate": 10.4,
+  "roc_auc": 0.8419,
+  "average_precision": 0.4116,
+  "precision_at_top20": 0.3667,
+  "base_conversion_rate": 9.9,
   "conversion_rate_simulation": {
-    "top_5pct": 66.0,
-    "top_10pct": 58.0,
-    "top_15pct": 46.7,
-    "top_20pct": 40.0,
-    "top_25pct": 34.8,
-    "top_30pct": 30.7,
-    "top_50pct": 20.4
+    "top_5pct": 46.7,
+    "top_10pct": 40.0,
+    "top_15pct": 42.2,
+    "top_20pct": 36.7,
+    "top_25pct": 32.0,
+    "top_30pct": 26.7,
+    "top_50pct": 18.0
   },
-  "n_train": 4000,
-  "n_test": 1000,
+  "n_train": 1200,
+  "n_test": 300,
   "n_features": 36
 }
