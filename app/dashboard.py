@@ -50,8 +50,21 @@ else:
 
 if needs_run:
     import subprocess
+    import streamlit as st
     print("Running pipeline in fast mode...")
-    subprocess.run([sys.executable, os.path.join(PROJECT_ROOT, "run_pipeline.py"), "--fast"], check=True)
+    try:
+        subprocess.run(
+            [sys.executable, os.path.join(PROJECT_ROOT, "run_pipeline.py"), "--fast"],
+            check=True,
+            capture_output=True,
+            text=True
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"Pipeline crashed! Exit code: {e.returncode}")
+        print(f"STDOUT:\n{e.stdout}")
+        print(f"STDERR:\n{e.stderr}")
+        st.error(f"Failed to build models on Streamlit Cloud! Error:\n\n{e.stderr}")
+        st.stop()
 
 
 
