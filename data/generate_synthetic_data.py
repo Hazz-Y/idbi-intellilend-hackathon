@@ -27,7 +27,7 @@ from faker import Faker
 # Configuration
 # ---------------------------------------------------------------------------
 SEED = 42
-NUM_CUSTOMERS = 5000
+NUM_CUSTOMERS = 1500 if "--fast" in sys.argv else 5000
 MONTHS = 12  # months of transaction history
 DB_PATH = os.path.join(os.path.dirname(__file__), "intellilend.db")
 CSV_PATH = os.path.join(os.path.dirname(__file__), "sample_data.csv")

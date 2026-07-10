@@ -36,8 +36,8 @@ if PROJECT_ROOT not in sys.path:
 # Auto-run pipeline if models don't exist (for cloud deployment)
 if not os.path.exists(os.path.join(PROJECT_ROOT, "models", "pipeline_output.pkl")):
     import subprocess
-    print("Pipeline output not found. Running pipeline...")
-    subprocess.run([sys.executable, os.path.join(PROJECT_ROOT, "run_pipeline.py")], check=True)
+    print("Pipeline output not found. Running pipeline in fast mode...")
+    subprocess.run([sys.executable, os.path.join(PROJECT_ROOT, "run_pipeline.py"), "--fast"], check=True)
 
 
 
