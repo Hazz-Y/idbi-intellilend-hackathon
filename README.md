@@ -6,6 +6,8 @@
 
 Built for **Smart India Hackathon** | Problem Statement by **IDBI Bank**
 
+🌟 **[Live Demo — Streamlit App](https://your-app-url-here.streamlit.app/)** 🌟
+
 ---
 
 ## 🎯 Problem Statement
